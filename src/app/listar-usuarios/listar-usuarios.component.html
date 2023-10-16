@@ -1,0 +1,119 @@
+<div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listaUsuarios$ | async">
+            <td>{{row.id}}</td>
+            <td>{{row.nome}}</td>
+            <td>{{row.idade}}</td>
+            <td>{{row.perfil}}</td>
+            <td> <button 
+                class="btn btn-primary" 
+                data-bs-toggle="modal"
+                 data-bs-target="#exampleModal"
+                 type="button" (click)="editarUsuario(row.id)">
+                 Editar
+                </button>
+            </td>
+            <td> <button 
+                class="btn btn-secondary" 
+                
+                 type="button" (click)="excluirUsuario(row.id)">
+                 Excluir
+                </button>
+            </td>
+            <!--  -->
+        </tr>
+    </tbody>
+</table>
+
+
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Nome</td>
+                    <td>Idade</td>
+                    <td>Perfil</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="(Usuario$  |  async) as usuario">
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nome}}</td>
+                    <td>{{usuario.idade}}</td>
+                    <td>{{usuario.perfil}}</td>
+               
+                
+                </tr>
+            </tbody>
+        </table>
+        <form [formGroup]="contactForm" #f="ngForm" (ngSubmit)="alterarUsuario()" >
+            <div class="col-7">
+                <label>Id</label>
+                <input  [(ngModel)]="idUsuarios.id" class="form-control" placeholder="Digite o mesmo numero do ID acima" formControlName="id" type="text">
+                <span 
+                class="alert"
+                *ngIf="contactForm.get('id')?.errors && (contactForm.get('id')?.touched)">
+                 Digite o Id que está acima
+                </span>
+            </div>
+            <div class="col-7">
+                <label>Nome</label>
+                <input id="nome" name="nome" [(ngModel)]="idUsuarios.nome" class="form-control" formControlName="nome" type="text">
+                <span 
+                class="alert"
+                *ngIf="contactForm.get('nome')?.errors && (contactForm.get('nome')?.touched || contactForm.get('nome')?.dirty)">
+                 Altere o nome se estiver errado
+                </span>
+            </div>
+            <div class="col-7">
+                <label>Idade</label>
+                <input id="idade" name="idade" [(ngModel)]="idUsuarios.idade" class="form-control"  formControlName="idade" required type="text">
+                <span 
+                    class="alert"
+                    *ngIf="contactForm.get('idade')?.errors && (contactForm.get('idade')?.touched || contactForm.get('idade')?.dirty)">
+                    Altere a idade se estiver errada
+                </span>
+            </div>
+            <div class="col-7">
+                <label>Perfil</label>
+                <input id="perfil" name="perfil" [(ngModel)]="idUsuarios.perfil" class="form-control" formControlName="perfil" type="text">
+                <span 
+                class="alert"
+                *ngIf="contactForm.get('perfil')?.errors && (contactForm.get('perfil')?.touched || contactForm.get('perfil')?.dirty)">
+                Altere o perfil se estiver errada
+            </span>
+            </div>
+    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" *ngIf="showButton" data-bs-dismiss="modal" (click)="fecharAtulizar()">Close</button>
+                <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Save changes</button>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+<div></div>

@@ -1,0 +1,91 @@
+<h1>Listar Usuários Administradores Jeito 1</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listaUsuarios$ | async">
+            <td>{{ row.id }}</td>
+            <td>{{ row.nome }}</td>
+            <td>{{ row.idade }}</td>
+            <td>{{ row.perfil }}</td>
+            <td>
+        </tr>
+       
+    </tbody>
+</table>
+
+<h1>Listar Usuários Administradores Jeito 2</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listaUsuarios2">
+            <td>{{ row.id }}</td>
+            <td>{{ row.nome }}</td>
+            <td>{{ row.idade }}</td>
+            <td>{{ row.perfil }}</td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Listar Usuários Administradores Jeito 3</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listaUsuarios3">
+            <td>{{ row.id }}</td>
+            <td>{{ row.nome }}</td>
+            <td>{{ row.idade }}</td>
+            <td>{{ row.perfil }}</td>
+            <td>
+        </tr>
+    </tbody>
+</table>
+<h1>Listar Usuários Administradores Jeito 4</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of listaUsuarios5$ | async">
+            <td>{{ row.id }}</td>
+            <td>{{ row.nome }}</td>
+            <td>{{ row.idade }}</td>
+            <td>{{ row.perfil }}</td>
+            <td>
+        </tr>
+       
+    </tbody>
+</table>
