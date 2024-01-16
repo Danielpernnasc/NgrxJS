@@ -29,9 +29,7 @@ export class ListarUsuariosComponent implements OnInit {
   inputDesabilitado: boolean = true;
   // updateForm: FormGroup = new FormGroup;
   contactForm!: FormGroup;
-  meuFormulario!: FormGroup;
 
-  formulario!: FormGroup;
 
   constructor(
    
